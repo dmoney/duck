@@ -51,22 +51,20 @@ class DuckShopper
   end
 
   def would_you_like_to_buy_a_duck?
-    @prev_asker = caller
+    @provider = caller
 
-    ask @prev_asker, 'a what?'
-
-    ask @prev_asker, 'does it quack?'
-
+    ask @provider, 'a what?'
+    ask @provider, 'does it quack?'
     ask next_shopper, 'would you like to buy a duck?'
   end
 
   def does_it_quack?
-    reply = ask @prev_asker, 'does it quack?'
+    reply = ask @provider, 'does it quack?'
     say reply
   end
 
   def a_what?
-    reply = ask @prev_asker, 'a what?'
+    reply = ask @provider, 'a what?'
     say reply
   end
 end
